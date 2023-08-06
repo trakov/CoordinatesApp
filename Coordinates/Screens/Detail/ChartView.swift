@@ -7,7 +7,7 @@ struct ChartView: View {
         GeometryReader { geo in
             ZStack {
                 GridView(viewModel: viewModel)
-                GraphView(viewModel: viewModel, lineRadius: 0.0)
+                GraphView(viewModel: viewModel, lineRadius: 1.0)
             }
             .onChange(of: geo.size) { size in
                 viewModel.viewSize = size
@@ -73,9 +73,13 @@ private struct GraphView: View {
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
         ChartView(viewModel: ChartViewModel(points: [
-            Point(x: 12.23, y: 30.33),
-            Point(x: -12.23, y: 50.33),
-            Point(x: -32.23, y: -30.33)
+            Point(x: -2.0, y: -2.0),
+            Point(x: -1.0, y: 2.0),
+            Point(x: 0.0, y: -3.0),
+            Point(x: 1.0, y: 4.0),
+            Point(x: 2.0, y: -2.0),
+            Point(x: 3.0, y: 5.0),
+            Point(x: 4.0, y: -3.0)
         ]))
     }
 }
