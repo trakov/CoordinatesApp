@@ -1,17 +1,19 @@
-//
-//  CoordinatesApp.swift
-//  Coordinates
-//
-//  Created by Timur Rakov on 02.08.2023.
-//
-
 import SwiftUI
 
 @main
 struct CoordinatesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            DetailView(points: [
+//                Point(x: -2.0, y: -2.0),
+//                Point(x: -1.0, y: 2.0),
+//                Point(x: 0.0, y: -3.0),
+//                Point(x: 1.0, y: 4.0),
+//                Point(x: 2.0, y: -2.0),
+//                Point(x: 3.0, y: 5.0),
+//                Point(x: 4.0, y: -3.0)
+//            ])
+            MainView()
         }
     }
 }
