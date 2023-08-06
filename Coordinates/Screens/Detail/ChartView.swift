@@ -15,6 +15,10 @@ struct ChartView: View {
             .onAppear {
                 viewModel.viewSize = geo.size
             }
+            .onLongPressGesture {
+                // doesn't work
+                UIImageWriteToSavedPhotosAlbum(snapshot(), nil, nil, nil)
+            }
         }
     }
 }

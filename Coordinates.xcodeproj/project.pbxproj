@@ -32,6 +32,7 @@
 		8F2505062A7A73FD0089188D /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2505052A7A73FD0089188D /* Point.swift */; };
 		8F2505082A7A75240089188D /* EmptyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2505072A7A75240089188D /* EmptyModel.swift */; };
 		8F25050A2A7A90470089188D /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2505092A7A90470089188D /* ChartView.swift */; };
+		8FCC12C32A7FC70400698582 /* View+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCC12C22A7FC70400698582 /* View+Exts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		8F2505052A7A73FD0089188D /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		8F2505072A7A75240089188D /* EmptyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyModel.swift; sourceTree = "<group>"; };
 		8F2505092A7A90470089188D /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		8FCC12C22A7FC70400698582 /* View+Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Exts.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			children = (
 				8F0BB80F2A7A67F200A72248 /* CoordinatesApp.swift */,
 				8F0BB8422A7A719600A72248 /* Network */,
+				8FCC12BC2A7FB1F900698582 /* Extensions */,
 				8F0BB83A2A7A6BD900A72248 /* Screens */,
 				8F0BB8132A7A67F300A72248 /* Assets.xcassets */,
 				8F0BB8152A7A67F300A72248 /* Preview Content */,
@@ -243,6 +246,14 @@
 				8F2504C72A7A72680089188D /* PointsService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		8FCC12BC2A7FB1F900698582 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8FCC12C22A7FC70400698582 /* View+Exts.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,6 +401,7 @@
 				8F0BB8102A7A67F200A72248 /* CoordinatesApp.swift in Sources */,
 				8F0BB8412A7A6D7400A72248 /* ChartViewModel.swift in Sources */,
 				8F2504D92A7A72680089188D /* RequestError.swift in Sources */,
+				8FCC12C32A7FC70400698582 /* View+Exts.swift in Sources */,
 				8F2505062A7A73FD0089188D /* Point.swift in Sources */,
 				8F2504D62A7A72680089188D /* RequestMethod.swift in Sources */,
 				8F2504D72A7A72680089188D /* URLParameterEncoder.swift in Sources */,
@@ -556,6 +568,7 @@
 				DEVELOPMENT_TEAM = E3FZZXWET7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save graph to library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -586,6 +599,7 @@
 				DEVELOPMENT_TEAM = E3FZZXWET7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save graph to library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
