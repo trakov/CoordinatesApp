@@ -12,7 +12,7 @@ struct Line {
 
     var viewSize: CGSize = .zero {
         didSet {
-            update()
+            update(with: CGSize(width: max(viewSize.width, 50), height: max(viewSize.height, 50)))
         }
     }
     private var area = (origin: (x: 0, y: 0), size: (width: 0, height: 0))
@@ -34,7 +34,7 @@ struct Line {
         rightTop = Point(x: points.last!.x, y: maxY)
     }
     
-    private func update(margin: CGFloat = 2) {
+    private func update(with viewSize: CGSize, margin: CGFloat = 2) {
         step = min(
             viewSize.height/(rightTop.y - leftBottom.y + margin),
             viewSize.width/(rightTop.x - leftBottom.x + margin)
