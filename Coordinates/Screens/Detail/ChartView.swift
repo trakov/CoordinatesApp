@@ -3,6 +3,51 @@ import SwiftUI
 struct ChartView: View {
     @StateObject var viewModel: ChartViewModel
     
+    @State private var scale = 1.0
+    @State private var lastScale = 1.0
+    private let minScale = 1.0
+    private let maxScale = 3.0
+    
+    @State private var width: CGFloat = 150
+    @State private var height: CGFloat = 150
+    @State private var position: CGSize = .zero
+    @State private var lastPosition: CGSize = .zero
+
+    private var magnification: some Gesture {
+        MagnificationGesture()
+            .onChanged { value in
+                let delta = value / lastScale
+                scale *= delta
+                lastScale = value
+            }
+            .onEnded { value in
+                withAnimation {
+                    scale = max(scale, minScale)
+                    scale = min(scale, maxScale)
+                }
+                lastScale = 1.0
+            }
+    }
+    
+    private var drag: some Gesture {
+        DragGesture()
+            .onChanged { state in
+                let size = state.translation
+                let delta = CGSize(
+                    width: lastPosition.width - size.width,
+                    height: lastPosition.height - size.height
+                )
+                position = CGSize(
+                    width: position.width - delta.width,
+                    height: position.height - delta.height
+                )
+                lastPosition = size
+            }
+            .onEnded { state in
+                lastPosition = .zero
+            }
+    }
+    
     var body: some View {
         GeometryReader { geo in
             ZStack {
@@ -15,11 +60,22 @@ struct ChartView: View {
             .onAppear {
                 viewModel.viewSize = geo.size
             }
-            .onLongPressGesture {
-                // doesn't work
-                UIImageWriteToSavedPhotosAlbum(snapshot(), nil, nil, nil)
+//            .onLongPressGesture {
+//                // doesn't work, empty image
+//                UIImageWriteToSavedPhotosAlbum(snapshot(), nil, nil, nil)
+//            }
+        }
+        .scaleEffect(scale)
+        .offset(position)
+        .gesture(drag)
+        .gesture(magnification)
+        .onTapGesture {
+            withAnimation {
+                position = .zero
+                scale = 1.0
             }
         }
+        .clipped()
     }
 }
 
@@ -41,7 +97,7 @@ private struct GridView: View {
                     path.addLine(to: line.to)
                 }
             }
-            .stroke(.black)
+            .stroke(.red)
         }
     }
 }
